@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Таблица Адресов</title>
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.11/css/jquery.dataTables.css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.1.2/css/buttons.dataTables.css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/select/1.1.2/css/select.dataTables.css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.0.2/css/responsive.dataTables.css" />
+    <link href="/css/starter-template.css" rel="stylesheet">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-1.12.4.js" ></script>
+    <script src="https://cdn.datatables.net/1.10.11/js/jquery.dataTables.js" ></script>
+    <script src="https://cdn.datatables.net/buttons/1.1.2/js/dataTables.buttons.js" ></script>
+    <script src="https://cdn.datatables.net/select/1.1.2/js/dataTables.select.js" ></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.js" ></script>
+    <script src="/js/library/bootstrap.bundle.min.js" ></script>
+    <script src="https://cdn.datatables.net/responsive/2.0.2/js/dataTables.responsive.js" ></script>
+    <script src="/js/library/dataTables.altEditor.free.js" ></script>
+    <script src="/js/tables/addresses.js" ></script>
+
+</head>
+
+<body>
+<!--<div th:insert="/templates/navbar :: copy"></div>-->
+<div th:fragment="copy">
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+        <a class="navbar-brand" th:href="@{/}">Главня</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" th:href="@{/checkinput}">Ввод чека <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Настройки
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" th:href="@{/inputdata}">Входные данные</a>
+                        <a class="dropdown-item" th:href="@{/address}">Адреса</a>
+                        <a class="dropdown-item" th:href="@{/typework}">Типы работы</a>
+                        <a class="dropdown-item" th:href="@{/names}">Сотрудники</a>
+                        <a class="dropdown-item" th:href="@{/months}">Месяца</a>
+                    </div>
+                </li>
+
+                <li class="nav-item active">
+                    <a class="nav-link" th:href="@{/download}">Скачать Отчет<span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+            <div class="mx-5">
+                <H2><span class="text-white bg-dark" th:text="${nameOfUser}">   </span> </H2>
+                <H2><span>   </span> </H2>
+            </div>
+            <form th:action="@{/login}" class="form-inline my-2 my-lg-0">
+                <!--                    <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">-->
+                <!--                    <H2><span class="text-white bg-dark" th:text="${nameOfUser}">   </span> </H2>-->
+                <button class="btn btn-secondary my-2 my-sm-0" type="submit">Выйти</button>
+            </form>
+        </div>
+    </nav>
+</div>
+    <main role="main" class="container" >
+        <div class="starter-template">
+            <h1>Адреса</h1>
+                <table cellpadding="0" cellspacing="0" border="0" class="dataTable table table-striped" id="addresses" width="100%"></table>
+        </div>
+    </main>
+
+
+</body>
+</html>
